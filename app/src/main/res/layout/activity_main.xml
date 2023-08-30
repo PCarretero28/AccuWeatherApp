@@ -14,43 +14,31 @@
         android:layout_height="wrap_content"
         tools:text="Main City"
         android:gravity="center"
-        android:padding="16dp"
-        android:layout_marginTop="32dp"
+        android:padding="4dp"
+        android:layout_marginTop="44dp"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mainCountry"
+        android:id="@+id/mainCountryRegion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="4dp"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="italic"
 
-        app:layout_constraintEnd_toStartOf="@id/mainRegion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCity"
-        tools:text="Main Country" />
-
-    <TextView
-        android:id="@+id/mainRegion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="italic"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mainCountry"
-        app:layout_constraintTop_toBottomOf="@id/mainCity"
-        tools:text="Main Region" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainCity"
+        tools:text="Main Country, Main Region" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

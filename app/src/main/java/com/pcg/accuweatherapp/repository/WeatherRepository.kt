@@ -12,31 +12,35 @@ import kotlinx.coroutines.launch
 
 class WeatherRepository {
 
-    var accuWeatherAPI : AccuWeatherAPI
+    var accuWeatherAPI: AccuWeatherAPI
 
     init {
         accuWeatherAPI = RetrofitInstance().getRetrofitInstance()
             .create(AccuWeatherAPI::class.java)
     }
 
-    fun getLocationDetailsFromAPI():LiveData<LocationModel>{
-
-        //LiveData
-        var data = MutableLiveData<LocationModel>()
-
-        var location:LocationModel
+    fun getLocationDetailsFromAPI(geoPosition: String): LiveData<LocationModel> {
+        // LiveData
+        val data = MutableLiveData<LocationModel>()
 
         GlobalScope.launch(Dispatchers.IO) {
+            try {
+                // Devuelve Response<LocationModel>
+                val response = accuWeatherAPI.getLocationDetails(geoPosition)
+                Log.i("getLocationDetailsFromAPI", response.toString())
 
-            //Returning the Response<LocationModel>
-            val response = accuWeatherAPI.getLocationDetails()
+                if (response.isSuccessful) {
+                    // Guarda los datos en la lista
+                    val location = response.body()
 
-            if(response != null){
-                //saving the data to list
-                location = response.body()!!
-
-                data.postValue(location)
-                Log.i("TAGY", "${data.value}")
+                    if (location != null) {
+                        data.postValue(location!!)
+                        Log.i("TAGY", "${data.value}")
+                    }
+                }
+            } catch (e: Exception) {
+                // Maneja cualquier error aquí
+                Log.e("TAGY", "Error al obtener detalles de ubicación: ${e.message}")
             }
         }
         return data

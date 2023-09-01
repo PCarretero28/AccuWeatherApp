@@ -1,23 +1,17 @@
 package com.pcg.accuweatherapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.pcg.accuweatherapp.model.LocationModel
 import com.pcg.accuweatherapp.repository.WeatherRepository
 
-class LocationViewModel : ViewModel(){
+class LocationViewModel : ViewModel() {
 
     var repository: WeatherRepository = WeatherRepository()
 
-    var locationLiveData: LiveData<LocationModel>
-
-    init {
-        locationLiveData = repository.getLocationDetailsFromAPI()
+    fun getLocationFromLiveData(geoPosition: String): LiveData<LocationModel> {
+        Log.i("getLocationFromLiveData",geoPosition)
+        return repository.getLocationDetailsFromAPI(geoPosition)
     }
-
-    fun getLocationFromLiveData():LiveData<LocationModel>{
-        return locationLiveData
-    }
-
-
 }

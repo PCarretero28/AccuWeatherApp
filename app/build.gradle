@@ -48,6 +48,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     //LiveData
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    //Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+
+    //Get Location
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.6.1'

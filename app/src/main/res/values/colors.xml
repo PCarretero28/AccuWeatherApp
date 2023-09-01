@@ -2,5 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#431081</color>
+    <color name="background_current">#581BA1</color>
+    <color name="background_forecast">#1B3DB8</color>
 </resources>

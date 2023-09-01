@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.pcg.accuweatherapp.databinding.ActivityMainBinding
-import com.pcg.accuweatherapp.model.LocationModel
+import com.pcg.accuweatherapp.model.location.LocationModel
 import com.pcg.accuweatherapp.service.LocationService
 import com.pcg.accuweatherapp.viewmodel.LocationViewModel
 import kotlinx.coroutines.launch

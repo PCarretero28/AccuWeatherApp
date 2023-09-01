@@ -3,7 +3,7 @@ package com.pcg.accuweatherapp.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.pcg.accuweatherapp.model.LocationModel
+import com.pcg.accuweatherapp.model.location.LocationModel
 import com.pcg.accuweatherapp.retrofit.AccuWeatherAPI
 import com.pcg.accuweatherapp.retrofit.RetrofitInstance
 import kotlinx.coroutines.Dispatchers

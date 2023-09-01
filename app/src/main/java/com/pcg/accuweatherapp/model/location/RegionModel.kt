@@ -1,4 +1,4 @@
-package com.pcg.accuweatherapp.model
+package com.pcg.accuweatherapp.model.location
 
 data class RegionModel (
     val ID: String,

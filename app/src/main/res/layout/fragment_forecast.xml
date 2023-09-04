@@ -6,6 +6,14 @@
     android:background="@color/background_forecast"
     tools:context=".navigation.ForecastFragment">
 
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:text="ID LOCATION"/>
 
 
 </FrameLayout>

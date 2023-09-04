@@ -7,3 +7,4 @@ data class CurrentWeatherModel(
     val HasPrecipitation: Boolean,
     val Temperature: TemperatureModel
 )
+

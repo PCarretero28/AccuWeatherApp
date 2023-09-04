@@ -3,6 +3,7 @@ package com.pcg.accuweatherapp.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.pcg.accuweatherapp.model.currentweather.CurrentWeatherModel
 import com.pcg.accuweatherapp.model.location.LocationModel
 import com.pcg.accuweatherapp.retrofit.AccuWeatherAPI
 import com.pcg.accuweatherapp.retrofit.RetrofitInstance
@@ -27,7 +28,6 @@ class WeatherRepository {
             try {
                 // Devuelve Response<LocationModel>
                 val response = accuWeatherAPI.getLocationDetails(geoPosition)
-                Log.i("getLocationDetailsFromAPI", response.toString())
 
                 if (response.isSuccessful) {
                     // Guarda los datos en la lista
@@ -35,12 +35,38 @@ class WeatherRepository {
 
                     if (location != null) {
                         data.postValue(location!!)
-                        Log.i("TAGY", "${data.value}")
                     }
                 }
             } catch (e: Exception) {
                 // Maneja cualquier error aquí
                 Log.e("TAGY", "Error al obtener detalles de ubicación: ${e.message}")
+            }
+        }
+        return data
+    }
+
+    fun getCurrentWeatherFromAPI(id: String): LiveData<List<CurrentWeatherModel>> {
+        // LiveData
+        val data = MutableLiveData<List<CurrentWeatherModel>>()
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                // Devuelve Response<CurrentWeatherModel>
+                Log.i("WeatherRepository - Id", id)
+                val response = accuWeatherAPI.getCurrentWeather(id)
+                Log.i("WeatherRepository", response.toString())
+
+                if (response.isSuccessful) {
+                    // Guarda los datos en la lista
+                    val weather = response.body()
+
+                    if (weather != null) {
+                        data.postValue(weather!!)
+                    }
+                }
+            } catch (e: Exception) {
+                // Maneja cualquier error aquí
+                Log.e("TAGY", "Error al obtener detalles de tiempo actual: ${e.message}")
             }
         }
         return data

@@ -18,6 +18,11 @@
         android:id="@+id/forecastFragment"
         android:name="com.pcg.accuweatherapp.navigation.ForecastFragment"
         android:label="fragment_forecast"
-        tools:layout="@layout/fragment_forecast" />
+        tools:layout="@layout/fragment_forecast" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>

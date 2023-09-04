@@ -10,15 +10,15 @@ import retrofit2.http.Query
 interface AccuWeatherAPI {
 
     //Key Minsait = m0CLj239gGRjerrGbedSe15OaTpq6OF3
-    //My Key = 	8sKgGbos1NLThc5OQsMm7bKtFh3XIOBR
+    //My Key = 	y4sPtDdk8X7haXdEkOpZ1aCUYXn8zsja
 
     //Get location
-    @GET("/locations/v1/cities/geoposition/search?apikey=8sKgGbos1NLThc5OQsMm7bKtFh3XIOBR&language=es-ES&details=false")
+    @GET("/locations/v1/cities/geoposition/search?apikey=y4sPtDdk8X7haXdEkOpZ1aCUYXn8zsja&language=es-ES&details=false")
     suspend fun getLocationDetails(@Query ("q") geoPosition:String): Response<LocationModel>
 
     //Current weather
-    @GET("/currentconditions/v1/{id}?apikey=8sKgGbos1NLThc5OQsMm7bKtFh3XIOBR")
-    suspend fun getCurrentWeather(@Path ("id") id:String): Response<CurrentWeatherModel>
+    @GET("/currentconditions/v1/{id}?apikey=y4sPtDdk8X7haXdEkOpZ1aCUYXn8zsja")
+    suspend fun getCurrentWeather(@Path ("id") id:String): Response<List<CurrentWeatherModel>>
 
     //Forecast weather
 

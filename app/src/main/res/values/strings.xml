@@ -4,4 +4,6 @@
     <string name="reload_location">Reload location</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next_days">Next days</string>
+
+    <string name="temperature">Temperature</string>
 </resources>

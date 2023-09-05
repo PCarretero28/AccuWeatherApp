@@ -95,6 +95,29 @@ class MainFragment : Fragment() {
 
                             binding.tvTemperature.text = currentWeather[0].WeatherText
                             binding.tvCelsius.text = "${currentWeather[0].Temperature.Metric.Value} °C"
+                            binding.tvFahrenheit.text = "${currentWeather[0].Temperature.Imperial.Value} °F"
+
+                            if(currentWeather[0].HasPrecipitation){
+                                binding.iconHumidity.visibility = View.VISIBLE
+                            }else{
+                                binding.iconHumidity.visibility = View.INVISIBLE
+                            }
+
+                            // Obtén una referencia al ImageView
+                            val iconWeather = binding.iconWeather
+
+                            when (currentWeather[0].WeatherIcon) {
+                                1 -> iconWeather.setImageResource(R.drawable.ic8_sol)
+                                2,3 -> iconWeather.setImageResource(R.drawable.ic8_parcialmente_soleado)
+                                4,5,6 -> iconWeather.setImageResource(R.drawable.ic8_parcialmente_nublado)
+                                7,8 -> iconWeather.setImageResource(R.drawable.ic8_nube)
+                                12,13,14 -> iconWeather.setImageResource(R.drawable.ic8_lluvia)
+                                15 -> iconWeather.setImageResource(R.drawable.ic8_tormenta)
+                                24 -> iconWeather.setImageResource(R.drawable.ic8_hielo)
+                                32 -> iconWeather.setImageResource(R.drawable.ic8_viento)
+                                else -> iconWeather.setImageResource(R.drawable.ic8_sol)
+                            }
+
                         }
                     })
             }

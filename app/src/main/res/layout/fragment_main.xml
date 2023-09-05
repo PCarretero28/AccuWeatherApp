@@ -60,9 +60,9 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_margin="32dp"
+        android:layout_margin="30dp"
         app:cardBackgroundColor="@color/card_color"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/geoPosition">
@@ -85,29 +85,67 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/iconHumidity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="15dp"
+                android:contentDescription="@string/humidity"
+                android:src="@drawable/ic8_humedad"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/tvTemperature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
                 android:id="@+id/iconTemperature"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic8_temperatura"
                 android:layout_margin="15dp"
+                android:layout_marginStart="8dp"
                 android:contentDescription="@string/temperature"
+                android:src="@drawable/ic8_temperatura"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTemperature"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="8dp" />
-
-
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvCelsius"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                tools:text="0"
-                android:textSize="30sp"
                 android:textColor="@color/white"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/iconWeather"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTemperature" />
+                app:layout_constraintTop_toBottomOf="@id/tvTemperature"
+                tools:text="0" />
+
+            <ImageView
+                android:id="@+id/iconWeather"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                tools:src="@drawable/ic8_sol"
+                android:layout_margin="15dp"
+                android:contentDescription="@string/temperature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/tvFahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iconWeather"
+                tools:text="0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

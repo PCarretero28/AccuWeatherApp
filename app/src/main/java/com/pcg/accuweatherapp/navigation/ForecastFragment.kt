@@ -18,9 +18,9 @@ class ForecastFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val id = args.id
-        val tvId = view.findViewById<TextView>(R.id.tvId)
+        val tvText = view.findViewById<TextView>(R.id.tvText)
 
-        tvId.text = id
+        tvText.text = id
     }
 
     override fun onCreateView(

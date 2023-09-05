@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.pcg.accuweatherapp.model.currentweather.CurrentWeatherModel
+import com.pcg.accuweatherapp.model.forecastweather.ForecastWeatherModel
 import com.pcg.accuweatherapp.model.location.LocationModel
 import com.pcg.accuweatherapp.retrofit.AccuWeatherAPI
 import com.pcg.accuweatherapp.retrofit.RetrofitInstance
@@ -46,18 +47,15 @@ class WeatherRepository {
     }
 
     fun getCurrentWeatherFromAPI(id: String): LiveData<List<CurrentWeatherModel>> {
-        // LiveData
         val data = MutableLiveData<List<CurrentWeatherModel>>()
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 // Devuelve Response<CurrentWeatherModel>
-                Log.i("WeatherRepository - Id", id)
                 val response = accuWeatherAPI.getCurrentWeather(id)
                 Log.i("WeatherRepository", response.toString())
 
                 if (response.isSuccessful) {
-                    // Guarda los datos en la lista
                     val weather = response.body()
 
                     if (weather != null) {
@@ -71,4 +69,30 @@ class WeatherRepository {
         }
         return data
     }
+
+    fun getForecastWeatherFromAPI(id: String): LiveData<ForecastWeatherModel> {
+        val data = MutableLiveData<ForecastWeatherModel>()
+
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                // Devuelve Response<CurrentWeatherModel>
+                val response = accuWeatherAPI.getForecastWeather(id)
+                Log.i("WeatherRepository", response.toString())
+
+                if (response.isSuccessful) {
+                    val weather = response.body()
+
+                    if (weather != null) {
+                        data.postValue(weather!!)
+                    }
+                }
+            } catch (e: Exception) {
+                // Maneja cualquier error aquí
+                Log.e("TAGY", "Error al obtener detalles de tiempo actual: ${e.message}")
+            }
+        }
+        return data
+    }
+
+
 }

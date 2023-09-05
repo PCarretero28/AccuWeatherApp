@@ -3,6 +3,7 @@ package com.pcg.accuweatherapp.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.pcg.accuweatherapp.model.currentweather.CurrentWeatherModel
+import com.pcg.accuweatherapp.model.forecastweather.ForecastWeatherModel
 import com.pcg.accuweatherapp.model.location.LocationModel
 import com.pcg.accuweatherapp.repository.WeatherRepository
 
@@ -16,5 +17,9 @@ class LocationViewModel : ViewModel() {
 
     fun getCurrentWeatherFromKey(id: String) : LiveData<List<CurrentWeatherModel>>{
         return repository.getCurrentWeatherFromAPI(id)
+    }
+
+    fun getForecastWeatherFromKey(id: String) : LiveData<ForecastWeatherModel>{
+        return repository.getForecastWeatherFromAPI(id)
     }
 }

@@ -84,7 +84,6 @@ class MainFragment : Fragment() {
 
     private fun showCurrentWeather() {
         keyLocationLiveData.observe(viewLifecycleOwner, Observer { keyLocation ->
-            Log.i("Weather", keyLocation)
 
             lifecycleScope.launch {
                 locationViewModel.getCurrentWeatherFromKey(keyLocation)
@@ -115,7 +114,7 @@ class MainFragment : Fragment() {
                                 15 -> iconWeather.setImageResource(R.drawable.ic8_tormenta)
                                 24 -> iconWeather.setImageResource(R.drawable.ic8_hielo)
                                 32 -> iconWeather.setImageResource(R.drawable.ic8_viento)
-                                else -> iconWeather.setImageResource(R.drawable.ic8_sol)
+                                else -> iconWeather.setImageResource(R.drawable.ic8_aviso)
                             }
 
                         }

@@ -2,6 +2,7 @@
     <string name="app_name">AccuWeatherApp</string>
     <string name="error_finding_location">No location found</string>
     <string name="reload_location">Reload location</string>
+    <string name="today_weather">Today weather</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next_days">Next days</string>
 

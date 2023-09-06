@@ -6,4 +6,10 @@
     <color name="background_forecast">#1B3DB8</color>
     <color name="card_color">#4B6DE6</color>
     <color name="forecast_card_color">#6C80CA</color>
+
+    <color name="min_temperature">#2135B3</color>
+    <color name="max_temperature">#ED1914</color>
+
+    <color name="day">#6477EF</color>
+    <color name="night">#3E2178</color>
 </resources>

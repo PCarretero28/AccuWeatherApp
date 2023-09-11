@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface AccuWeatherAPI {
 
     //Key Minsait = m0CLj239gGRjerrGbedSe15OaTpq6OF3
-    //My Key = 	mtOkeIYaEGcktozayW7K06xYhjGuYuun
+    //My Key = 	SMlG9IXwA4ZRWSkVGrsGaeA697tiJqp3
 
     //Get location
     @GET("/locations/v1/cities/geoposition/search?apikey=m0CLj239gGRjerrGbedSe15OaTpq6OF3&language=es-ES&details=false")

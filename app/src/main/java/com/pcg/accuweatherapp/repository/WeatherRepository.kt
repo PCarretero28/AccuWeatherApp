@@ -39,7 +39,6 @@ class WeatherRepository {
                     }
                 }
             } catch (e: Exception) {
-                // Maneja cualquier error aquí
                 Log.e("TAGY", "Error al obtener detalles de ubicación: ${e.message}")
             }
         }
@@ -51,7 +50,7 @@ class WeatherRepository {
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                // Devuelve Response<CurrentWeatherModel>
+                // Devuelve Response<List<CurrentWeatherModel>>
                 val response = accuWeatherAPI.getCurrentWeather(id)
                 Log.i("WeatherRepository", response.toString())
 
@@ -63,7 +62,6 @@ class WeatherRepository {
                     }
                 }
             } catch (e: Exception) {
-                // Maneja cualquier error aquí
                 Log.e("TAGY", "Error al obtener detalles de tiempo actual: ${e.message}")
             }
         }
@@ -75,7 +73,7 @@ class WeatherRepository {
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                // Devuelve Response<CurrentWeatherModel>
+                // Devuelve Response<ForecastWeatherModel>
                 val response = accuWeatherAPI.getForecastWeather(id)
                 Log.i("WeatherRepository", response.toString())
 
@@ -87,7 +85,6 @@ class WeatherRepository {
                     }
                 }
             } catch (e: Exception) {
-                // Maneja cualquier error aquí
                 Log.e("TAGY", "Error al obtener detalles de tiempo actual: ${e.message}")
             }
         }

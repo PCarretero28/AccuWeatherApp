@@ -83,7 +83,6 @@ class ForecastFragment : Fragment() {
         val img5 = view.findViewById<ImageView>(R.id.imgDay5)
         val imgNight5 = view.findViewById<ImageView>(R.id.imgNight5)
 
-
         lifecycleScope.launch {
             locationViewModel.getForecastWeatherFromKey(id)
                 .observe(viewLifecycleOwner, Observer {
